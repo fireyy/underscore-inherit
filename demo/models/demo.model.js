@@ -4,6 +4,7 @@
 
   this.Demo.Model = _.inherit({
     initialize: function(options) {
+      this.observers = [];
       this.data = {};
       this.tag = null;
 
@@ -28,6 +29,21 @@
       }else{
         return this.data;
       }
+    },
+    register: function(applier) {
+      var search  = _.find(this.observers, function (observer) {
+        return applier.id === observer.id;
+      });
+
+      if (!search) {
+        this.observers.push(applier);
+      }
+    },
+
+    unregister: function (applier) {
+      this.observers = _.filter(this.observers, function(observer) {
+        return applier.id !== observer.id;
+      });
     }
 
   });

@@ -3,5 +3,5 @@
   var sidebarView = new Demo.SidebarView({
     sidebarModel: sidebarModel
   });
-  sidebarModel.register(sidebarView);
+  sidebarModel.subscribe(sidebarView);
 }).call(this);

@@ -12,6 +12,7 @@
         '</ul>'
       ];
       options.container = '#js-sidebar-container';
+      options.id = 'demo-sidebar';
 
       $super(options);
     }

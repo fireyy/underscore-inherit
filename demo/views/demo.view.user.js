@@ -7,6 +7,7 @@
       options.template = [
         '<div class="user">',
           '<a href="/<%=user.id%>"><%=user.name%></a>',
+          '<a class="j-user-logout" href="/logout">Logout</a>',
         '</div>'
       ];
       options.container = '#js-user-container';
@@ -15,6 +16,14 @@
       $super(options);
 
       this.userModel.request(123);
+    },
+    events: {
+      'click #.j-user-logout': 'logout'
+    },
+    logout: function (e){
+      if(!window.confirm("Confirm to logout?")){
+        return false;
+      }
     }
   });
 

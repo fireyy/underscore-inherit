@@ -6,7 +6,7 @@
     initialize: function ($super, options) {
       options.template = [
         '<div class="user">',
-          '<a href="/<%=user.id%>"><%=user.name%></a>',
+          '<a href="/<%=id%>"><%=name%></a>',
           '<a class="j-user-logout" href="/logout">Logout</a>',
         '</div>'
       ];

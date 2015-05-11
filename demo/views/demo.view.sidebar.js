@@ -5,16 +5,25 @@
   this.Demo.SidebarView = _.inherit(this.Demo.View, {
     initialize: function ($super, options) {
       options.template = [
-        '<ul class="sidebar">',
-          '<% _.each(items, function(item){%>',
-          '<li><a href="<%=item.url%>"><%=item.title%></a></li>',
-          '<%})%>',
-        '</ul>'
+        '<div class="sidebar">',
+          '<p>Hello, <%=name%></p>',
+        '</div>'
       ];
       options.container = '#js-sidebar-container';
       options.id = 'demo-sidebar';
 
       $super(options);
+    },
+    update: function (options){
+      var map = {
+        "user:update": function(data){
+          this.render(data);
+        }
+      };
+      var action = map[options.tag];
+      if (_.isFunction(action)) {
+        action.call(this, options.data);
+      }
     }
   });
 

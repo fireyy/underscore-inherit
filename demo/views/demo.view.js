@@ -14,6 +14,14 @@
       var html = this.templateFn(data);
       this.$el.html(html);
       this.bindEvents();
+    },
+
+    update: function (data) {
+      this.render(data);
+    },
+
+    bindEvents: function (){
+      //
     }
 
   });

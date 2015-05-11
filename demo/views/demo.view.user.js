@@ -18,7 +18,7 @@
       this.userModel.request(123);
     },
     events: {
-      'click #.j-user-logout': 'logout'
+      'click .j-user-logout': 'logout'
     },
     logout: function (e){
       if(!window.confirm("Confirm to logout?")){
